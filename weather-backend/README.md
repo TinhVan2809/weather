@@ -1,23 +1,23 @@
-# Weather Backend Proxy 🌤️
+# Weather Backend Proxy 
 
 Backend proxy Node.js + Express an toàn để ẩn API key của WeatherAPI.com
 
-## 🚀 Tính Năng
+## Tính Năng
 
-✅ **Ẩn API Key**: API key WeatherAPI không bao giờ được expose cho frontend
-✅ **In-Memory Cache**: Lưu trữ dữ liệu thời tiết với TTL có thể cấu hình
-✅ **Rate Limiter**: Chống abuse với giới hạn request khác nhau
-✅ **CORS Chặt Chẽ**: Chỉ cho phép origin của frontend được phép
-✅ **Error Handling**: Xử lý lỗi rõ ràng và chi tiết
-✅ **Real-Time Support**: WebSocket với Socket.IO
-✅ **Logging**: Request logging với thời gian xử lý
+**Ẩn API Key**: API key WeatherAPI không bao giờ được expose cho frontend
+**In-Memory Cache**: Lưu trữ dữ liệu thời tiết với TTL có thể cấu hình
+**Rate Limiter**: Chống abuse với giới hạn request khác nhau
+**CORS Chặt Chẽ**: Chỉ cho phép origin của frontend được phép
+**Error Handling**: Xử lý lỗi rõ ràng và chi tiết
+**Real-Time Support**: WebSocket với Socket.IO
+**Logging**: Request logging với thời gian xử lý
 
-## 📋 Yêu Cầu Hệ Thống
+## Yêu Cầu Hệ Thống
 
 - Node.js >= 14.0
 - npm >= 6.0
 
-## 🔧 Cài Đặt
+## Cài Đặt
 
 ### 1. Cài đặt dependencies
 
@@ -202,7 +202,7 @@ POST /api/cache-clear
 
 Xóa tất cả cache để testing
 
-## ⚙️ Cấu Hình
+## Cấu Hình
 
 ### Cache TTL
 
@@ -249,27 +249,27 @@ const allowedOrigins = [
 ];
 ```
 
-## 🔐 Bảo Mật
+## Bảo Mật
 
 ### API Key Không Bao Giờ Được Expose
 
-✅ API key chỉ được lưu server-side (trong `.env`)
-✅ Frontend chỉ gọi các endpoint proxy (`/api/weather`, `/api/search`)
-✅ Server sẽ gửi request tới WeatherAPI với API key
-✅ Response được filter và trả về cho frontend
+API key chỉ được lưu server-side (trong `.env`)
+Frontend chỉ gọi các endpoint proxy (`/api/weather`, `/api/search`)
+Server sẽ gửi request tới WeatherAPI với API key
+Response được filter và trả về cho frontend
 
 ### CORS Chặt Chẽ
 
-✅ Chỉ cho phép origin trong danh sách `allowedOrigins`
-✅ Ngăn chặn các request từ domain lạ
+Chỉ cho phép origin trong danh sách `allowedOrigins`
+Ngăn chặn các request từ domain lạ
 
 ### Rate Limiting
 
-✅ General limit: 100 requests per 15 minutes
-✅ Weather endpoints: 30 requests per 1 minute
-✅ Search endpoints: 20 requests per 1 minute
+General limit: 100 requests per 15 minutes
+Weather endpoints: 30 requests per 1 minute
+Search endpoints: 20 requests per 1 minute
 
-## 📊 Cấu Trúc Thư Mục
+#Cấu Trúc Thư Mục
 
 ```
 weather-backend/
@@ -288,7 +288,7 @@ weather-backend/
     └── cache.js              # In-memory cache
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Sử dụng cURL
 
@@ -332,7 +332,7 @@ export async function searchLocation(query) {
 }
 ```
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Error: WEATHER_API_KEY không được cấu hình
 
@@ -366,7 +366,7 @@ curl "http://localhost:3001/api/cache-stats"
 curl -X POST "http://localhost:3001/api/cache-clear"
 ```
 
-## 📝 Logging
+## Logging
 
 Server sẽ in ra console:
 
@@ -377,8 +377,6 @@ Server sẽ in ra console:
 [API] Fetching weather for: Hanoi
 [Cache SAVE] current:days=3&location=Hanoi (TTL: 600000ms)
 ```
-
-## 🔄 WebSocket (Socket.IO)
 
 Backend hỗ trợ real-time updates thông qua Socket.IO:
 
@@ -399,27 +397,5 @@ socket.on('subscribed', (data) => {
 socket.emit('unsubscribe:weather', 'Hanoi');
 ```
 
-## 📚 Dependencies
-
-- **express**: Web framework
-- **cors**: CORS middleware
-- **dotenv**: Environment variables
-- **axios**: HTTP client
-- **express-rate-limit**: Rate limiting
-- **socket.io**: Real-time communication
-
-## 📜 License
-
-ISC
-
-## 👨‍💻 Hỗ Trợ
-
-Nếu gặp vấn đề, hãy:
-1. Kiểm tra `.env` có được cấu hình đúng không
-2. Kiểm tra WeatherAPI key còn valid không
-3. Xem logs trong console
-4. Restart server
-
----
 
 **Happy Weather Coding! 🌤️**
