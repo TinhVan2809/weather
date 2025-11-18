@@ -1,0 +1,87 @@
+.forecast-container {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.forecast-container .forecast-day {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast-container .forecast-day > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.forecast-container .forecast-day > ul > li {
+    list-style: none;
+    color: var(--color);
+    cursor: pointer;
+}
+
+.forecast-container .forecast-hourly {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 0.8rem;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    overflow-x: overlay;
+    height: 200px;
+}
+
+.forecast-container .forecast-hourly::-webkit-scrollbar{
+    height: 10px;
+}
+
+.forecast-container .forecast-hourly::-webkit-scrollbar-thumb{
+    background-color: rgba(222, 216, 216, 0.418);
+}
+
+.forecast-container .forecast-hourly .hourly-card .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 8px;
+    gap: 10px;
+    /* border: 1px solid var(--color); */
+    border-radius: 46px;
+    height: 160px;
+    width: 70px;
+    background-color: rgba(180, 170, 170, 0.423);
+    margin-bottom: 8px;
+}
+
+.forecast-container .forecast-hourly .hourly-card .card p {
+    color: var(--text);
+    font-weight: 550;
+    font-size: 14px;
+}
+
+.forecast-container .forecast-hourly .hourly-card .card .card-icon {
+    color: var(--color);
+    background-color: rgba(228, 221, 221, 0.384);
+    border-radius: 50%;
+    padding: 5px;
+}
+.forecast-container .forecast-hourly .hourly-card .card .card-icon img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+.forecast-container .forecast-hourly .hourly-card.current-hour .card {
+    background-color: rgba(192, 76, 18, 0.696);
+    border: 1px solid transparent;
+    margin-bottom: 30px;
+}

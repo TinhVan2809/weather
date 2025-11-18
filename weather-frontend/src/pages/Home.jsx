@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { fetchCurrentAndForecast } from "../services/weatherApi";
+import Forecast from "../components/Forecast";
+import { Link } from "react-router-dom";
+
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -75,13 +80,15 @@ function Home() {
   const locationName = weatherData?.location?.name || 'Unknown';
   const locationCountry = weatherData?.location?.country || '';
   const tempC = weatherData?.current?.temp_c || 'N/A'; // độ C
-  const tempF = weatherData?.current.temp_f || 'N/A'; // độ F
   // condition là string trực tiếp, không phải object.text
   const conditionText = weatherData?.current?.condition || 'Unknown';
 
   // Lấy dữ liệu sunrise/sunset động từ API 
   const sunrise = weatherData?.forecast?.[0]?.astro?.sunrise || '';
   const sunset = weatherData?.forecast?.[0]?.astro?.sunset || '';
+
+  
+  const hourlyData = weatherData?.forecast?.[0]?.hourly || '';
 
   
   console.log('Full weatherData structure:', JSON.stringify(weatherData, null, 2));
@@ -97,13 +104,22 @@ function Home() {
     <>
       <nav className="nav-container">
         <div className="nav-links">
-          <a href="">Home</a>
-          <a href="">Dự báo</a>
+          <Link to="/">Home</Link>
+          <Link to="/du-bao">Dự báo</Link>
           <div className="nav-title">
             <p>Weather Forecast</p>
           </div>
-          <a href="">Lịch sử</a>
-          <a href="">Tiến độ</a>
+          <Link to="/lich-su">Lịch sử</Link>
+          <div className="setting-container">
+            <a href="#">Cài đặt</a>
+            <div className="setting">
+              <ul> 
+                <li onClick={() => navigate('/theme')}>Theme</li>
+                <li>Unit</li>
+                <li>Language</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="nav-search">
           <input
@@ -130,7 +146,8 @@ function Home() {
           </div>
           <div className="weather-temperatures">
             <div className="temperatures-item">
-              <p>{tempC}<i className="ri-celsius-line"></i></p>
+              <p>{tempC}<i className="ri-celsius-line"></i></p> 
+              {/* <span>|</span> <p>{tempF} <i class="ri-fahrenheit-line"></i></p> */}
             </div>
             <div className="temperatures-item">
               <span>{locationName} - {locationCountry} <i className="ri-map-pin-fill"></i></span>
@@ -141,6 +158,11 @@ function Home() {
           </div>
         </div>
       </section>
+
+    <>
+      <Forecast hourlyData={hourlyData} timezone={timezone} />
+    </>
+
     </>
   );
 }

@@ -8,6 +8,7 @@
   --color-scheme: light dark;
   --color: rgba(255, 255, 255, 0.87);
   --background-color: #242424;
+  --text: #ffffff;
   --background-body: linear-gradient(to right bottom, #990aff, #8b04ff, #7b01ff, #6800ff, #5200ff, #5200fa, #5300f5, #5300f0, #6600e5, #7300db, #7d01d1, #8508c7);
   --background-body2: linear-gradient(to right bottom, #e8dbaa, #e7d994, #e3d87d, #ded765, #d7d64c, #cacd3f, #bec331, #b1ba22, #9ea624, #8c9325, #7a8025, #696e24);
 
@@ -25,7 +26,6 @@
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
   background-image: url(/pexels-christian-heitz-285904-842711.jpg);
   background-blend-mode: lighten;
@@ -33,4 +33,23 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+html, body {
+  height: 100%;
+  overflow-y: overlay; /* Scrollbar đè lên nội dung */
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.426);
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
 }

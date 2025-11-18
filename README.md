@@ -19,7 +19,7 @@ Backend proxy Node.js + Express an toàn để ẩn API key của WeatherAPI.com
 - Node.js >= 14.0
 - npm >= 6.0
 
-## Cài Đặt
+## Cài Đặt và Cách Lấy API
 
 ### 1. Cài đặt dependencies
 
@@ -410,7 +410,7 @@ socket.emit('unsubscribe:weather', 'Hanoi');
 ```
 
 ```icon/font
-icon - Remix - Icon
+icon - Remix-Icon
 font - "Inter" - Google font 
 ```
 
