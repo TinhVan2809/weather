@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height: 1.5;
+  --font-weight: 400;
+
+  --color-scheme: light dark;
+  --color: rgba(255, 255, 255, 0.87);
+  --background-color: #242424;
+  --background-body: linear-gradient(to right bottom, #990aff, #8b04ff, #7b01ff, #6800ff, #5200ff, #5200fa, #5300f5, #5300f0, #6600e5, #7300db, #7d01d1, #8508c7);
+  --background-body2: linear-gradient(to right bottom, #e8dbaa, #e7d994, #e3d87d, #ded765, #d7d64c, #cacd3f, #bec331, #b1ba22, #9ea624, #8c9325, #7a8025, #696e24);
+
+  --font-synthesis: none;
+  --text-rendering: optimizeLegibility;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url(/pexels-christian-heitz-285904-842711.jpg);
+  background-blend-mode: lighten;
+  font-family: "Inter", sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
