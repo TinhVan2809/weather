@@ -1,4 +1,4 @@
-![](https://github.com/TinhVan2809/weather/blob/0b8026f7c05d7d4904a2cd35f64e4d7affa83eea/weather-frontend/public/Screenshot-2025-11-19-011336.png)
+![](https://github.com/TinhVan2809/weather/blob/4109ffd4307ea61a4bcca13a1426b695f9f5194b/weather-frontend/public/Screenshot2025-11-19-011336.png)
 
 # Weather Forecast
 
