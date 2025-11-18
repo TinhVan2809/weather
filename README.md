@@ -117,6 +117,16 @@ curl "http://localhost:3001/api/weather?location=Hanoi&days=5"
         "min_temp_c": 22,
         "condition": "Partly cloudy",
         "condition_icon": "https://...",
+        "astro": {
+                    "sunrise": "06:09 AM",
+                    "sunset": "05:15 PM",
+                    "moonrise": "04:17 AM",
+                    "moonset": "03:46 PM",
+                    "moon_phase": "Waning Crescent",
+                    "moon_illumination": 5,
+                    "is_moon_up": 0,
+                    "is_sun_up": 0
+                },
         "hourly": [...]
       }
     ],
