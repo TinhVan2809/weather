@@ -156,6 +156,7 @@ async function getCurrentWeather(location, days = 3) {
         chance_of_snow: day.day.daily_chance_of_snow,
         avg_humidity: day.day.avghumidity,
         uv: day.day.uv,
+        astro: day.astro,
         hourly: day.hour.map(hour => ({
           time: hour.time,
           temp_c: hour.temp_c,

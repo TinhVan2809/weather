@@ -25,6 +25,11 @@ async function getWeather(req, res) {
     // Gọi API client
     const weatherData = await apiClient.getCurrentWeather(location, parseInt(days));
 
+    // Kiểm tra xem sunrise/sunset có trong dữ liệu không
+    if (!weatherData.forecast?.[0]?.astro?.sunrise || !weatherData.forecast?.[0]?.astro?.sunset) {
+      console.warn(`[Controller] Cảnh báo: Dữ liệu sunrise/sunset không có sẵn cho địa điểm "${location}".`);
+    }
+
     // Return response
     res.status(200).json({
       success: true,

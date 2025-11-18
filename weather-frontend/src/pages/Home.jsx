@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { fetchCurrentAndForecast } from "../services/weatherApi";
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
   const [city, setCity] = useState("Vietnam"); // State for the search input
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  const fetchWeatherData = useCallback(async (cityName) => {
+  const fetchWeatherData = async (cityName) => {
     setLoading(true);
     setError(null);
     try {
@@ -19,11 +19,11 @@ function Home() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
   useEffect(() => {
     fetchWeatherData(city);
-  }, [fetchWeatherData, city]);
+  }, []);  //eslint-disable-line
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -44,38 +44,53 @@ function Home() {
     }
   };
 
-  // Map conditions to icons for cleaner logic
-  const iconMap = {
-    rain: "ri-rainy-line",
-    cloudy: "ri-cloudy-line",
-    overcast: "ri-cloudy-line",
-    snow: "ri-snowy-line",
-    sunny: "ri-sun-line",
-    clear: "ri-sun-line",
-  };
-
   const getWeatherIcon = (conditionText) => {
+    console.log('getWeatherIcon called with:', conditionText);
     const condition = conditionText.toLowerCase();
-    // Find the first key in iconMap that is included in the condition string
-    const iconKey = Object.keys(iconMap).find(key => condition.includes(key));
-    // Return the corresponding icon, or a default one if no match is found
-    return iconKey ? iconMap[iconKey] : "ri-sun-line";
+    console.log('condition after toLowerCase:', condition);
+    
+    if (condition.includes("rain")) {
+      console.log('Matched RAIN');
+      return "ri-rainy-line";
+    } else if (condition.includes("cloudy") || condition.includes("overcast")) {
+      console.log('Matched CLOUDY/OVERCAST');
+      return "ri-cloudy-line";
+    } else if (condition.includes("snow")) {
+      console.log('Matched SNOW');
+      return "ri-snowy-line";
+    } else if (condition.includes("sunny") || condition.includes("clear")) {
+      console.log('Matched SUNNY/CLEAR');
+      return "ri-sun-line";
+    } else {
+      console.log('No match - using default ri-sun-line');
+      return "ri-sun-line"; 
+    }
   };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!weatherData) return <div>No data</div>;
 
-
+  const timezone = weatherData?.location?.timezone_id;
   const locationName = weatherData?.location?.name || 'Unknown';
   const locationCountry = weatherData?.location?.country || '';
   const tempC = weatherData?.current?.temp_c || 'N/A';
   // condition là string trực tiếp, không phải object.text
   const conditionText = weatherData?.current?.condition || 'Unknown';
+
+  // Lấy dữ liệu sunrise/sunset động từ API 
+  const sunrise = weatherData?.forecast?.[0]?.astro?.sunrise || '';
+  const sunset = weatherData?.forecast?.[0]?.astro?.sunset || '';
+
   
-  // Lấy dữ liệu sunrise/sunset động từ API thay vì hardcode
-  const sunrise = weatherData?.forecast?.forecastday[0]?.astro?.sunrise || 'N/A';
-  const sunset = weatherData?.forecast?.forecastday[0]?.astro?.sunset || 'N/A';
+  console.log('Full weatherData structure:', JSON.stringify(weatherData, null, 2));
+  console.log('Weather Data:', {
+    locationName,
+    locationCountry,
+    tempC,
+    conditionText,
+    currentData: weatherData?.current
+  });
 
   return (
     <>
@@ -109,7 +124,7 @@ function Home() {
             </div>
             <div className="weather-item">
               <p>Today</p>
-              <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: timezone })}</span>
             </div>
           </div>
           <div className="weather-temperatures">
@@ -121,7 +136,7 @@ function Home() {
             </div>
           </div>
           <div className="weather-day">
-            <p>Now {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })} <i className="ri-circle-fill"></i> Sunrise {sunrise} <i className="ri-circle-fill"></i> Sunset {sunset}</p>
+            <p>Now {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: timezone })} <i className="ri-circle-fill"></i> Sunrise {sunrise} <i className="ri-circle-fill"></i> Sunset {sunset} </p>
           </div>
         </div>
       </section>
