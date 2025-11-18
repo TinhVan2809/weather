@@ -409,6 +409,11 @@ socket.on('subscribed', (data) => {
 socket.emit('unsubscribe:weather', 'Hanoi');
 ```
 
+```icon/font
+icon - Remix - Icon
+font - "Inter" - Google font 
+```
+
 
 **Happy Weather Coding! 🌤️**
 

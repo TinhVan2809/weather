@@ -67,14 +67,15 @@ function Home() {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div><i class="ri-loader-2-line"></i> Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!weatherData) return <div>No data</div>;
 
   const timezone = weatherData?.location?.timezone_id;
   const locationName = weatherData?.location?.name || 'Unknown';
   const locationCountry = weatherData?.location?.country || '';
-  const tempC = weatherData?.current?.temp_c || 'N/A';
+  const tempC = weatherData?.current?.temp_c || 'N/A'; // độ C
+  const tempF = weatherData?.current.temp_f || 'N/A'; // độ F
   // condition là string trực tiếp, không phải object.text
   const conditionText = weatherData?.current?.condition || 'Unknown';
 
