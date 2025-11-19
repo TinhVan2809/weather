@@ -411,7 +411,8 @@ socket.emit('unsubscribe:weather', 'Hanoi');
 
 ```icon/font
 icon - Remix-Icon
-font - "Inter" - Google font 
+font - "Inter" Google font 
+image - pexels - google
 ```
 
 
