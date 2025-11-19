@@ -40,7 +40,7 @@
 }
 
 .forecast-container .forecast-hourly::-webkit-scrollbar{
-    height: 10px;
+    height: 8px;
 }
 
 .forecast-container .forecast-hourly::-webkit-scrollbar-thumb{

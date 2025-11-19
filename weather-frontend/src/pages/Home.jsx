@@ -117,6 +117,7 @@ function Home() {
                 <li onClick={() => navigate('/theme')}>Theme</li>
                 <li>Unit</li>
                 <li>Language</li>
+                <li>About</li>
               </ul>
             </div>
           </div>

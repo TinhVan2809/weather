@@ -3,9 +3,7 @@
   --line-height: 1.5;
   --font-weight: 400;
 
-  --color-scheme: light dark;
-  --color: rgba(255, 255, 255, 0.87);
-  --background-color: #242424;
+  --color: rgba(255,255,255, 0.87);
   --text: #ffffff;
 
   --font-synthesis: none;
@@ -74,7 +72,7 @@ nav.nav-container .nav-search button {
 
 nav.nav-container .nav-search button:hover {
     background-color: var(--color);
-    color: var(--background-color);
+    color: var(--background);
 }
 
 nav.nav-container .setting-container {
@@ -104,10 +102,10 @@ nav.nav-container .setting-container .setting > ul {
 
 nav.nav-container .setting-container .setting > ul > li {
     cursor: pointer;
-    border-bottom: 1px solid var(--color);
+    border-bottom: 1px solid var(--text);
     width: 100%;
     padding: 3px 0;
-    color: var(--color);
+    color: var(--text);
     list-style: none;
 }
 
@@ -138,7 +136,7 @@ section.today-container .weather-today-container .weather-today {
 
 section.today-container .weather-today-container .weather-today p,
 section.today-container .weather-today-container .weather-today i {
-    color: var(--color);
+    color: var(--text);
 }
 
 section.today-container .weather-today-container .weather-today .weather-item > i{

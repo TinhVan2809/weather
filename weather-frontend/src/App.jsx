@@ -6,11 +6,20 @@ import HandleTheme from "./components/Theme"
 import './css/home.css'
 import './css/index.css'
 import './css/forecast.css'
-import './css/theme.css'
+
+
+import React, { useEffect } from 'react';
 
 import { Routes, Route } from "react-router-dom"
 
 function App() {
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.className = savedTheme;
+        }
+    }, []); // [] đảm bảo hook chỉ chạy một lần khi component mount
  
 
   return (
