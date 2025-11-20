@@ -90,7 +90,17 @@ function Home() {
       </div>
       </div>;
 
-  if (error) return <div>Error: {error}</div>;
+      const Reload = () => {
+          window.location.reload();
+      }
+
+  if (error) return <div>
+    <div className="error">
+      <i class="ri-cloud-off-fill"></i>
+      <p>  <i class="ri-emotion-sad-line"></i> Error: {error}, try it again or <a href="#">Help</a></p>
+      <button onClick={Reload}><i class="ri-download-cloud-2-fill"></i> Reload</button>
+    </div>
+  </div>;
   if (!weatherData) return <div>No data</div>;
 
   const timezone = weatherData?.location?.timezone_id;
