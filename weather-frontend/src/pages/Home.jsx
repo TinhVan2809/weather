@@ -31,7 +31,7 @@ function Home() {
   }, []);  //eslint-disable-line
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setInterval(() => { // Dùng setInerval để lập lại thời gian thực mỗi giây
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(timer);

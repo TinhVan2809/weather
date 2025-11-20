@@ -70,6 +70,15 @@
 }
 
 
+/* DARK THEME */
+body.dark {
+    background-image: url(/ryan-lum-1ak3Z7ZmtQA-unsplash.jpg);
+}
+
+body.dark .forecast-container .forecast-hourly .hourly-card.current-hour .card{
+    background-color: rgba(0, 0, 0, 0.674);
+}
+
 /* YELLOW THEME */
 /**********************************************************************************/
 

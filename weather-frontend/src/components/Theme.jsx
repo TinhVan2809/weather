@@ -4,7 +4,7 @@ function HandleTheme() {
     const navigate = useNavigate(); 
 
     const themes = [
-        { name: 'Dark', className: 'dark',  },
+        { name: 'Dark', className: 'dark', image: '/ryan-lum-1ak3Z7ZmtQA-unsplash.jpg'  },
         { name: 'Green', className: 'green', image: '/pexels-sohi-807598.jpg'},
         { name: 'Yellow', className: 'yellow', image: '/pexels-christian-heitz-285904-842711.jpg' },
         { name: 'Blue', className: 'blue', image: '/pexels-mdx014-973231.jpg' },
