@@ -50,6 +50,7 @@ CACHE_TTL=600000
 - Truy cập: https://www.weatherapi.com/
 - Đăng ký tài khoản miễn phí
 - Copy API key vào `.env`
+- Thay "your_actual_api_key_here" thành API bạn lấy được trên weatherapi.com. Ví dụ: d197dfaaf07e...1711
 
 ### 3. Khởi động server
 
