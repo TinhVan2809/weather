@@ -46,6 +46,25 @@
     overflow: hidden;
 }
 
+.theme-handler .theme-card .add-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.theme-handler .theme-card .add-icon > i {
+    font-size: 7.5rem;
+    color: rgba(188, 177, 177, 0.885);
+    transform: all .375s;
+}
+
+.theme-handler .theme-card .add-icon > i:hover,
+.theme-handler .theme-card:hover  i.ri-add-line{
+    color: rgba(172, 152, 152, 0.673);
+}
+
 .theme-handler .theme-card:hover {
     border-color: #ffffff;
 }

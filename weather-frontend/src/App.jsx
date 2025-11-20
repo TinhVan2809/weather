@@ -20,6 +20,17 @@ function App() {
             document.body.className = savedTheme;
         }
     }, []); // [] đảm bảo hook chỉ chạy một lần khi component mount
+
+    useEffect(() => {
+        // Khi component được tải, kiểm tra xem có hình nền tùy chỉnh trong localStorage không
+        const customBg = localStorage.getItem('customBackgroundImage');
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'custom-bg' && customBg) {
+            document.body.style.backgroundImage = `url(${customBg})`;
+            document.body.className = 'custom-bg';
+        }
+    }, []);
  
 
   return (

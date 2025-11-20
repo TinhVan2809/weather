@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import { useRef, useEffect } from 'react';
 
 function HandleTheme() {
     const navigate = useNavigate(); 
+    const fileInputRef = useRef(null);
 
     const themes = [
         { name: 'Dark', className: 'dark', image: '/ryan-lum-1ak3Z7ZmtQA-unsplash.jpg'  },
@@ -19,10 +21,34 @@ function HandleTheme() {
     ];
 
     const changeTheme = (themeClass) => {
+        // Xóa hình nền tùy chỉnh nếu có
+        document.body.style.backgroundImage = '';
+        localStorage.removeItem('customBackgroundImage');
+
         document.body.className = themeClass; //eslint-disable-line
         localStorage.setItem('theme', themeClass);
     };
 
+
+    const handleUploadClick = () => {
+        // Kích hoạt click trên input file ẩn
+        fileInputRef.current.click();
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const base64Image = e.target.result;
+                localStorage.setItem('customBackgroundImage', base64Image);
+                localStorage.setItem('theme', 'custom-bg'); // Đánh dấu là đang dùng theme tùy chỉnh
+                document.body.style.backgroundImage = `url(${base64Image})`;
+                document.body.className = 'custom-bg'; // Đặt một class để nhận biết
+            };
+            reader.readAsDataURL(file);
+        }
+    };
     
 
 
@@ -33,6 +59,19 @@ function HandleTheme() {
             </div>
 
             <div className="theme-handler">
+                    <input 
+                        type="file" 
+                        ref={fileInputRef} 
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }} 
+                        accept="image/*" // Chỉ cho phép chọn tệp hình ảnh
+                    />
+                    <div className="theme-card" onClick={handleUploadClick}>
+                        <div className="add-icon">
+                            <i className="ri-add-line"></i>
+                        </div>
+                        <p>Upload Your Background</p>
+                    </div>
                 {themes.map(theme => (
                     <div key={theme.name} className="theme-card" onClick={() => changeTheme(theme.className)}>
                         <img className='backgroundImage' src={theme.image} alt={theme.name} />

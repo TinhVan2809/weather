@@ -63,6 +63,10 @@ body::-webkit-scrollbar-track {
   nav .nav-links {
     gap: 25px !important;
   }
+
+  .forecast-container .forecast-hourly {
+    gap: 20px !important;
+  }
 }
 
 
