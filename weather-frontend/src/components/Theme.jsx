@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react'; 
 
 function HandleTheme() {
     const navigate = useNavigate(); 
@@ -22,7 +22,7 @@ function HandleTheme() {
 
     const changeTheme = (themeClass) => {
         // Xóa hình nền tùy chỉnh nếu có
-        document.body.style.backgroundImage = '';
+        document.body.style.backgroundImage = ''; //eslint-disable-line
         localStorage.removeItem('customBackgroundImage');
 
         document.body.className = themeClass; //eslint-disable-line

@@ -31,6 +31,21 @@ function Home() {
   }, []);  //eslint-disable-line
 
   useEffect(() => {
+    // Áp dụng theme khi component được tải
+    const savedTheme = localStorage.getItem('theme');
+    const customBg = localStorage.getItem('customBackgroundImage');
+
+    if (savedTheme) {
+      document.body.className = savedTheme;
+      if (savedTheme === 'custom-bg' && customBg) {
+        document.body.style.backgroundImage = `url(${customBg})`;
+      }
+    } else {
+      document.body.className = 'yellow'; // Đặt theme mặc định là 'yellow'
+    }
+  }, []);
+
+  useEffect(() => {
     const timer = setInterval(() => { // Dùng setInerval để lập lại thời gian thực mỗi giây
       setCurrentTime(new Date());
     }, 1000);
@@ -101,6 +116,7 @@ function Home() {
       <button onClick={Reload}><i class="ri-download-cloud-2-fill"></i> Reload</button>
     </div>
   </div>;
+  
   if (!weatherData) return <div>No data</div>;
 
   const timezone = weatherData?.location?.timezone_id;
