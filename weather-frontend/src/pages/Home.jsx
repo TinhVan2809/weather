@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { fetchCurrentAndForecast } from "../services/weatherApi";
 import Forecast from "../components/Forecast";
-import { Link } from "react-router-dom";
+// import { useNavigate } from 'react-router-dom';
 
-import { useNavigate } from 'react-router-dom';
+import Navbar from "../components/Navbar";
 
 function Home() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -145,27 +145,10 @@ function Home() {
 
   return (
     <>
-      <nav className="nav-container">
-        <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/du-bao">Dự báo</Link>
-          <div className="nav-title">
-            <p>Weather Forecast</p>
-          </div>
-          <Link to="/lich-su">Lịch sử</Link>
-          <div className="setting-container">
-            <a href="#">Cài đặt</a>
-            <div className="setting">
-              <ul> 
-                <li onClick={() => navigate('/theme')}>Theme</li>
-                <li>Unit</li>
-                <li>Language</li>
-                <li>About</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="nav-search">
+      
+      <Navbar />
+
+       <div className="nav-search">
           <input
             type="text"
             placeholder="Search for your address..."
@@ -175,7 +158,6 @@ function Home() {
           />
           <button onClick={handleSearch}>Search</button>
         </div>
-      </nav>
 
       <section className="today-container">
         <div className="weather-today-container">

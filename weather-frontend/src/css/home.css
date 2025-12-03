@@ -39,15 +39,24 @@ nav.nav-container .nav-links a {
     font-size: 16px;
     color: var(--color);
     text-decoration: none;
+
+    text-underline-offset: 5px;
 }
 
-nav.nav-container .nav-search {
+nav.nav-container .nav-links .nav-link-active, nav.nav-container .nav-links .setting-container .nav-link-active {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+
+ .nav-search {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
-nav.nav-container .nav-search input {
+ .nav-search input {
     padding: 0.7rem 1.5rem;
     border: transparent;
     width: 380px;
@@ -55,11 +64,11 @@ nav.nav-container .nav-search input {
     outline: none;
 }
 
-nav.nav-container .nav-search input::placeholder{
+ .nav-search input::placeholder{
     color: rgba(0, 0, 0, 0.26);
 }
 
-nav.nav-container .nav-search button {
+ .nav-search button {
     padding: 0.7rem 1.5rem;
     border: 1px solid var(--color);
     border-radius: 20px;
@@ -70,7 +79,7 @@ nav.nav-container .nav-search button {
     transition: background-color 0.3s, color 0.3s;
 }
 
-nav.nav-container .nav-search button:hover {
+ .nav-search button:hover {
     background-color: var(--color);
     color: var(--background);
 }

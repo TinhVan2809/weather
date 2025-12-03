@@ -1,6 +1,5 @@
 import Home from "./pages/Home"
 import ErrorBoundary from "./components/ErrorBoundary"
-
 import HandleTheme from "./components/Theme"
 
 import './css/home.css'

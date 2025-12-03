@@ -1,8 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react'; 
 
-function HandleTheme() {
-    const navigate = useNavigate(); 
+import Navbar from './Navbar';
+
+function Theme() {
+    // const navigate = useNavigate(); 
     const fileInputRef = useRef(null);
 
     const themes = [
@@ -54,9 +56,8 @@ function HandleTheme() {
 
     return (   
         <>
-            <div className="back">
-                <p onClick={() => navigate('/')}><i className="ri-arrow-left-long-line"></i> Back</p>
-            </div>
+        <Navbar />
+           
 
             <div className="theme-handler">
                     <input 
@@ -83,4 +84,4 @@ function HandleTheme() {
     )
 }
 
-export default HandleTheme;
+export default Theme;

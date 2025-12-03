@@ -260,9 +260,9 @@ app.io = io;
 // ============================================
 server.listen(PORT, () => {
   console.log(`
-✅ Server đang chạy tại: http://localhost:${PORT}
-📝 Kiểm tra health: http://localhost:${PORT}/health
-📖 Xem API info: http://localhost:${PORT}/info
+Server đang chạy tại: http://localhost:${PORT}
+Kiểm tra health: http://localhost:${PORT}/health
+Xem API info: http://localhost:${PORT}/info
 
 CORS Allowed Origins:
 ${[FRONTEND_ORIGIN, 'http://localhost:5173', 'http://localhost:3000'].map(o => `  ✓ ${o}`).join('\n')}

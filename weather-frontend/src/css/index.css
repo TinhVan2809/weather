@@ -49,29 +49,6 @@ body::-webkit-scrollbar-track {
   background: transparent;
 }
 
-@media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-  
-  nav.nav-container .nav-links a {
-    font-size: 14px;
-  }
-
-  nav.nav-container {
-    padding: 10px;
-  }
-
-  nav .nav-links {
-    gap: 25px !important;
-  }
-
-  .forecast-container .forecast-hourly {
-    gap: 20px !important;
-  }
-}
-
-
 /* LOADING */
 #wifi-loader {
   --background: #62abff;
@@ -320,3 +297,28 @@ body::-webkit-scrollbar-track {
 .error button:hover {
   background-color: #ffffff;
 }
+
+
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  nav.nav-container .nav-links a {
+    font-size: 14px;
+  }
+
+  nav.nav-container {
+    padding: 10px;
+  }
+
+  nav .nav-links {
+    gap: 25px !important;
+  }
+
+  .forecast-container .forecast-hourly {
+    gap: 20px !important;
+  }
+}
+
